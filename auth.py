@@ -5,12 +5,12 @@ from PyQt5 import uic
 from PyQt5.QtCore import Qt
 
 
-class Light(QDialog):
+class Authorization(QDialog):
     def __init__(self, parent):
         super().__init__()
-        uic.loadUi("light.ui", self)
-        self.setWindowTitle("Свет")
+        uic.loadUi("auth.ui", self)
         self.par = parent
+        self.setWindowTitle("Вход")
         self.initUI()
 
 
@@ -20,8 +20,8 @@ class Light(QDialog):
         self.accepted.connect(self.to_main)
 
     def to_main(self):
-        self.hide()
         self.par.show()
+        self.hide()
 
 
     def keyPressEvent(self, event):

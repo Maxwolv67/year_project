@@ -4,21 +4,34 @@ from PyQt5.QtWidgets import QWidget, QApplication, QMainWindow, QPushButton, QBu
 from PyQt5 import uic
 from PyQt5.QtCore import Qt
 from light import Light
+import requests
+from auth import Authorization
 
 class Main(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi("main.ui", self)
+        self.setWindowTitle("Главное меню")
         self.initUI()
 
     def initUI(self):
         """инициализируем наш класс"""
         self.all_devices = ["Освещение", "Температура"]
 
+        self.auth.clicked.connect(self.authorization)
+
         self.group_buttons_hand = QButtonGroup()
         self.group_buttons_hand.buttonClicked.connect(self.print_names)
-
         self.fill_in_hand()
+
+    def authorization(self):
+        self.hide()
+        self.x = Authorization(self)
+        self.x.show()
+
+    def in_db(self):
+        x = requests.get("http://localhost:8888/server.php", {'name': "Dima"})
+        print(x.text)
 
     def print_names(self, button):
         text = button.text()
