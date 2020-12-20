@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>443</width>
-    <height>606</height>
+    <height>616</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,7 +34,7 @@
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>Неизвестный</string>
+         <string>Admin</string>
         </property>
        </widget>
       </item>
@@ -49,7 +49,7 @@
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>Кабинет</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -72,61 +72,19 @@
         </property>
         <widget class="QWidget" name="tab">
          <attribute name="title">
-          <string>Ручная настройка</string>
+          <string>Загрузка данных</string>
          </attribute>
          <layout class="QGridLayout" name="gridLayout_4">
           <item row="0" column="0">
-           <widget class="QScrollArea" name="scroll_hand">
-            <property name="widgetResizable">
-             <bool>true</bool>
-            </property>
-            <widget class="QWidget" name="scrollAreaWidgetContents_2">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>0</y>
-               <width>369</width>
-               <height>385</height>
-              </rect>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_5">
-              <item row="0" column="0">
-               <layout class="QVBoxLayout" name="buttons_layout"/>
-              </item>
-             </layout>
-            </widget>
-           </widget>
+           <layout class="QVBoxLayout" name="verticalLayout_2"/>
           </item>
          </layout>
         </widget>
         <widget class="QWidget" name="tab_2">
          <attribute name="title">
-          <string>Сценарии</string>
+          <string>Ввод sql команд вручную</string>
          </attribute>
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="0" column="0">
-           <widget class="QScrollArea" name="scrollArea">
-            <property name="widgetResizable">
-             <bool>true</bool>
-            </property>
-            <widget class="QWidget" name="scrollAreaWidgetContents">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>0</y>
-               <width>369</width>
-               <height>385</height>
-              </rect>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_3">
-              <item row="0" column="0">
-               <layout class="QVBoxLayout" name="button_layout1"/>
-              </item>
-             </layout>
-            </widget>
-           </widget>
-          </item>
-         </layout>
+         <layout class="QGridLayout" name="gridLayout_2"/>
         </widget>
        </widget>
       </item>
@@ -150,7 +108,7 @@
                                         color: rgb(255, 255, 255)</string>
         </property>
         <property name="text">
-         <string>Вход</string>
+         <string>Выход</string>
         </property>
        </widget>
       </item>

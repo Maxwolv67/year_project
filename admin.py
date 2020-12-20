@@ -5,34 +5,25 @@ from PyQt5 import uic
 from PyQt5.QtCore import Qt
 from light import Light
 import requests
-from auth import Authorization
+#from auth import Authorization
 
-class Main(QMainWindow):
+class Admin(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("main.ui", self)
-        self.setWindowTitle("Главное меню")
+        uic.loadUi("admin.ui", self)
+        self.setWindowTitle("Админка")
         self.initUI()
 
     def initUI(self):
         """инициализируем наш класс"""
-        self.all_devices = ["Освещение", "Температура"]
-
-        self.auth.clicked.connect(self.authorization)
-
-        self.name = ""
-        self.login = ""
-
-        self.group_buttons_hand = QButtonGroup()
-        self.group_buttons_hand.buttonClicked.connect(self.which_button)
-        self.fill_in_hand()
+        pass
 
     def authorization(self):
         """открывает окно входа"""
         if self.auth.text() == "Вход":
             self.hide()
-            self.x = Authorization(self)
-            self.x.show()
+            #self.x = Authorization(self)
+            #self.x.show()
         else:
             self.name_label.setText("Неизвестный")
             self.auth.setText("Вход")
@@ -80,6 +71,6 @@ class Main(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = Main()
+    ex = Admin()
     ex.show()
     sys.exit(app.exec())

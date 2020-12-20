@@ -3,7 +3,7 @@ import sys
 from PyQt5.QtWidgets import QDialog, QLineEdit
 from PyQt5 import uic
 from PyQt5.QtCore import Qt
-
+from admin import Admin
 import requests
 
 
@@ -27,8 +27,13 @@ class Authorization(QDialog):
         self.password_right = requests.get("http://localhost:8888/server.php", {'login': self.login, "mode": 'reg'})
         self.password_right = self.password_right.text
         if self.check_password():
-            self.hide()
-            self.par.show()
+            if self.login != 'Admin' and self.login != 'admin':
+                self.hide()
+                self.par.show()
+            else:
+                self.x = Admin()
+                self.x.show()
+                self.hide()
         else:
             self.show()
 
@@ -43,6 +48,7 @@ class Authorization(QDialog):
             self.par.after_init()
             return True
         else:
+            print(self.password_right)
             self.error_label.setText("Неверный пароль")
             return False
 
@@ -50,8 +56,9 @@ class Authorization(QDialog):
     def to_main(self):
         self.par.show()
         self.hide()
-
     def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Enter:
+            self.find_in_db()
         if event.key() == Qt.Key_F:
             self.showFullScreen()
         if event.key() == Qt.Key_Escape:
